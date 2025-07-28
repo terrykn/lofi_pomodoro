@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Lofi Pomodoro",
   "version": "1.0",
-  "description": "A pomodoro timer with chill lofi music streams.",
+  "description": "A simple pomodoro timer synced with lo-fi music streams.",
   "permissions": [
     "storage",
     "offscreen",
