@@ -135,13 +135,12 @@ body {
   height: 22px;
 }
 
-/* MODIFIED: Now Playing Styles for new layout */
 .now-playing-container {
   padding: 4px 10px;
   margin-bottom: 10px;
   background-color: #2c2c2c;
   border-radius: 6px;
-  font-size: 13px;
+  font-size: 14px;
   color: #ccc;
   height: 28px;
   display: flex;
@@ -163,7 +162,6 @@ body {
   margin-right: 6px;
 }
 
-/* NEW: Styles for the independent music button */
 #musicPlayPauseBtn {
   background: none;
   border: none;
@@ -194,20 +192,14 @@ body {
 .stream-heading {
   text-align: left;
   font-size: 16px;
-}
-
-#suggestions {
-  display: flex;
-  flex-wrap: nowrap; /* Prevent wrapping */
-  justify-content: center; /* Center items horizontally */
-  gap: 12px; /* Optional spacing */
+  margin-bottom: 15px;
 }
 
 .suggestions-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 15px;
 }
 
 .suggestion-item {
@@ -215,10 +207,8 @@ body {
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
-  transition: transform 0.2s;
+  transition: transform 0.2s, border-color 0.2s;
   border: 2px solid transparent;
-  flex: 0 0 auto; /* Prevent stretching */
-  width: 30%; /* Make each take ~1/3 of row */
 }
 
 .suggestion-item:hover {
@@ -264,48 +254,56 @@ body {
   background: #2c2c2c;
   padding: 20px;
   border-radius: 10px;
-  width: 80%;
+  width: 85%;
 }
 
 .settings-content h2 {
   margin-top: 0;
+  text-align: left;
 }
 
 .setting-item {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 8px;
 }
 
 .setting-item label {
   font-size: 16px;
 }
 
-.setting-item input {
-  width: 60px;
-  padding: 5px;
-  border-radius: 4px;
+.setting-item input[type="number"] {
+  width: 32px;
+  padding: 8px;
+  border-radius: 6px;
   border: 1px solid #555;
-  background: #333;
+  background: #1e1e1e;
   color: white;
   text-align: center;
+  font-family: inherit;
+  font-size: 16px;
+  -moz-appearance: textfield; /* Firefox */
 }
 
-#saveSettingsBtn {
-  width: 100%;
-  padding: 10px;
-  background: #ff7675;
-  border: none;
-  border-radius: 6px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  margin-top: 10px;
+.setting-item input[type="number"]::-webkit-outer-spin-button,
+.setting-item input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-#saveSettingsBtn:hover {
-  background: #d63031;
+
+.setting-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #ff7675;
+}
+
+.panel-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .pagination {
@@ -319,15 +317,59 @@ body {
   border: none;
   cursor: pointer;
   padding: 3px;
-  color: var(--text-color, #ffffff);
+  color: #aaa;
   transition: color 0.2s ease;
 }
 
 .pagination button:hover {
-  color: var(--accent-color, #d63031);
+  color: #ff7675;
 }
 
 .pagination button svg {
   width: 24px;
   height: 24px;
+}
+
+#pageIndicator {
+  margin: 0 5px;
+}
+
+#saveSettingsBtn, #saveMusicPanelBtn {
+  padding: 10px 20px;
+  background: #ff7675;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 14px;
+  transition: background-color 0.2s;
+}
+
+#saveSettingsBtn:hover, #saveMusicPanelBtn:hover {
+  background: #d63031;
+}
+
+.coffee-container {
+  padding-top: 6px;
+}
+
+.coffee-container a {
+  color: #ff8484;
+  text-decoration: none;
+  font-size: 12px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.coffee-container a:hover {
+  color: #ff7675;
+}
+
+.coffee-container svg {
+    width: 14px;
+    height: 14px;
 }
